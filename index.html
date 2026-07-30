@@ -3,50 +3,202 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>For Jejes ❤️</title>
+<title>for jejes</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+background:linear-gradient(180deg,#1d2333,#0d1320);
+font-family:Poppins;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+
+}
+
+.stars{
+
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+
+}
+
+.star{
+
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite;
+
+}
+
+@keyframes twinkle{
+
+50%{
+
+opacity:.2;
+transform:scale(2);
+
+}
+
+}
+
+.card{
+
+width:750px;
+height:520px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:25px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+
+padding:35px;
+
+text-align:center;
+
+animation:fadeIn 2s;
+
+}
+
+h1{
+
+font-family:Caveat;
+font-size:55px;
+margin-bottom:20px;
+
+}
+
+p{
+
+line-height:1.8;
+
+font-size:18px;
+
+margin-bottom:20px;
+
+}
+
+img{
+
+width:420px;
+height:280px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+transition:.5s;
+
+}
+
+img:hover{
+
+transform:scale(1.03) rotate(-2deg);
+
+}
+
+button{
+
+margin-top:25px;
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:17px;
+
+cursor:pointer;
+
+background:#ffd8e5;
+
+color:#333;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+.fade{
+
+animation:fade .8s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="background">
-
 <div class="stars"></div>
 
-<div class="particles"></div>
-
-</div>
-
-
-<!-- OPENING -->
-
-<div id="opening" class="screen">
-
-<div class="intro-card">
-
-<h1>For Jejes ❤️</h1>
-
-<p id="typing"></p>
-
-<button id="startBtn">Open ❤️</button>
-
-</div>
-
-</div>
-
-
-
-<!-- MEMORY CARD -->
-
-<div id="memoryPage" class="hidden">
-
-<div class="memory-card">
+<div class="card">
 
 <h1 id="title">hi jejes</h1>
 
@@ -58,107 +210,129 @@ ini smua poto-poto buat kenang-kenangan (makasi eje udah kasih foto2nya)
 
 </p>
 
-<div class="photoFrame">
-
 <img id="photo" src="photo 1.jpg">
 
-</div>
+<br>
 
-<div class="buttons">
-
-<button onclick="prevMemory()">← Previous</button>
-
-<button onclick="nextMemory()">Next →</button>
+<button onclick="next()">Next →</button>
 
 </div>
 
-<div class="counter">
+<script>
 
-<span id="counter">1 / 7</span>
+for(let i=0;i<150;i++){
 
-</div>
+let s=document.createElement("div");
+s.className="star";
 
-</div>
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
 
-</div>
+s.style.animationDelay=Math.random()*5+"s";
 
+document.querySelector(".stars").appendChild(s);
 
+}
 
-<!-- FADE -->
+const memories=[
 
-<div id="transitionScreen">
+{
 
-<div class="transitionText">
+title:"The Memories",
 
-<h1>Some memories deserve their own place.</h1>
+text:"",
 
-<p>❤️</p>
+img:"photo 1.jpg"
 
-</div>
+},
 
-</div>
+{
 
+title:"Kenangan-1",
 
+text:"ini pas retret trakhir kita pas kelas 1222222222222222222, dimana pas disitu kalian enak bisa bertiga meanwhile i stuck sama si pemilik raynation itu lagi",
 
-<!-- MEMORY WALL -->
+img:"photo 2.jpg"
 
-<div id="memoryWall">
+},
 
-<h1>📸 Our Memory Wall</h1>
+{
 
-<p>
+title:"Kenangan-2",
 
-No matter where life takes us,<br>
+text:"kenang-kenangan dan awalnya terbentuk whwuwuwwuw, gacor sekali grup ini pas masih ori (dan skr jg).. awalnya dari kapan ya? dari pas ke bandung itu kan? eh ato itu beda ya, gatau ah capek mikir, anyways kenangan ke 2 yang awalnya cuman kita bertiga wrwrr.",
 
-these moments will always stay here.
+img:"photo 3.jpg"
 
-</p>
+},
 
-<div class="wall">
+{
 
-<div class="polaroid"><img src="photo 1.jpg"></div>
+  title:"Kenangan-3",
 
-<div class="polaroid"><img src="photo 2.jpg"></div>
+text:"foto  yang paling baru nihh (maap ga berurutan), tapi ya begitulah ya, ini huehuenya jejes keberapa gatau tapi dia huehue ges, our last gbk trip, moga diingat2 pas ke malay itu",
 
-<div class="polaroid"><img src="photo 3.jpg"></div>
+img:"photo 4.jpg"
 
-<div class="polaroid"><img src="photo 4.jpg"></div>
+},
 
-<div class="polaroid"><img src="photo 5.jpg"></div>
+{
 
-<div class="polaroid"><img src="photo 6.jpg"></div>
+    title:"Kenangan-4",
 
-</div>
+text:"perlukah i menjelaskan ni, TRIP KE GBK KEMARINNNNNNNNN (tuh kan ga berurutan)",
 
-<div class="endingMessage">
+img:"photo 5.jpg"
 
-<h2>
+},
 
-thankyou jejes ❤️
+  
 
-</h2>
+  {
 
-<p>
+    title:"Kenangan-5",
 
-ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini.
+text:"dannnnn kita balik lagi ke senjon ya ges, poto bareng2 kita, kenang-kenangan lagi yg harus diinget jejes, giluyy kita banyak juga memoriesnya",
 
-ngga cuman i doang sih,
+img:"photo 6.jpg"
 
-yang lain juga (terutama i),
+},
 
-smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw,
+  {
 
-ok bye
+title:"all i want to say is terima gajih jejes",
 
-</p>
+text:"ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini. ngga cuman i doang sih, yang lain juga (terutama i), smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw, ok bye",
 
-</div>
+img:"photo 6.jpg"
 
-</div>
+}
 
+];
 
+let i=0;
 
-<script src="script.js"></script>
+function next(){
+
+i++;
+
+if(i>=memories.length)i=0;
+
+title.innerHTML=memories[i].title;
+
+text.innerHTML=memories[i].text;
+
+photo.src=memories[i].img;
+
+photo.classList.remove("fade");
+
+void photo.offsetWidth;
+
+photo.classList.add("fade");
+
+}
+
+</script>
 
 </body>
 </html>
