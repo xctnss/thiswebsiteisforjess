@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Jejes ❤️</title>
+<title>for jejes</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
@@ -312,11 +312,11 @@ Next →
 <div id="memoryWall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;overflow:auto;background:linear-gradient(180deg,#1b2236,#0b1120);padding:50px;text-align:center;">
 
 <h1 style="font-family:Caveat;font-size:65px;">
-📸 Our Memory Wall
+📸 our memory wall
 </h1>
 
 <p style="margin-bottom:35px;">
-Every picture here is worth remembering ❤️
+sama2 -jus
 </p>
 
 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:25px;">
@@ -327,6 +327,10 @@ Every picture here is worth remembering ❤️
 <img src="photo 4.jpg" class="wallPic">
 <img src="photo 5.jpg" class="wallPic">
 <img src="photo 6.jpg" class="wallPic">
+  <img src="photo 7.jpg" class="wallPic">
+  <img src="photo 8.jpg" class="wallPic">
+  <img src="photo 9.jpg" class="wallPic">
+  <img src="photo 10.jpg" class="wallPic">
 
 </div>
 
@@ -335,7 +339,7 @@ Every picture here is worth remembering ❤️
 ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini.
 ngga cuman i doang sih, yang lain juga (terutama i),
 smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw,
-ok bye ❤️
+ok bye
 
 </p>
 
@@ -368,17 +372,13 @@ transition:.4s;
 
 }
 
-.wallPic:nth-child(odd){
+.wallPic:nth-child(1){transform:rotate(-8deg);}
+.wallPic:nth-child(2){transform:rotate(5deg);}
+.wallPic:nth-child(3){transform:rotate(-3deg);}
+.wallPic:nth-child(4){transform:rotate(9deg);}
+.wallPic:nth-child(5){transform:rotate(-6deg);}
+.wallPic:nth-child(6){transform:rotate(4deg);}
 
-transform:rotate(-5deg);
-
-}
-
-.wallPic:nth-child(even){
-
-transform:rotate(5deg);
-
-}
 
 .wallPic:hover{
 
@@ -396,7 +396,7 @@ const memories=[
 
 title:"The Memories",
 
-text:"",
+text:"by Jujus",
 
 img:"photo 1.jpg"
 
@@ -540,6 +540,32 @@ document.querySelector(".stars").appendChild(s);
 
 }
 
+setInterval(()=>{
+
+const spark=document.createElement("div");
+
+spark.innerHTML=["✨","🤍","⭐"][Math.floor(Math.random()*3)];
+
+spark.style.position="fixed";
+spark.style.left=Math.random()*100+"vw";
+spark.style.bottom="-20px";
+spark.style.fontSize="18px";
+spark.style.pointerEvents="none";
+spark.style.transition="8s linear";
+
+document.body.appendChild(spark);
+
+setTimeout(()=>{
+
+spark.style.transform="translateY(-120vh)";
+spark.style.opacity=0;
+
+},50);
+
+setTimeout(()=>spark.remove(),8000);
+
+},2500);
+  
 updateMemory();
 
 </script>
