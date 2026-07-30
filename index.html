@@ -85,14 +85,6 @@ z-index:-1;
 
 }
 
-<h1>Our Memories</h1>
-
-<p>for jejes</p>
-
-<button onclick="openBook()">Open Scrapbook</button>
-
-</div>
-
 </div>
 
 </div>
@@ -338,6 +330,14 @@ margin-top:20px;
 
 <body>
 
+  <h1>Our Memories</h1>
+
+<p>for jejes</p>
+
+<button onclick="openBook()">Open Scrapbook</button>
+
+</div>
+
   <div id="bookContainer">
 
 <div id="book">
@@ -354,11 +354,12 @@ margin-top:20px;
 
 </audio>
 
-  <button id="musicBtn" onclick="toggleMusic()">
-🎵 Music
-</button>
 
 <div class="card">
+
+    <button id="musicBtn" onclick="toggleMusic()">
+🎵 Music
+</button>
 
 <h1 id="title">
 
@@ -589,15 +590,7 @@ transform:scale(1.08) rotate(0deg);
 }
 
 </style>
-
-<div id="popup">
-
-<img id="popupImg">
-
-<p id="popupText"></p>
-
-<button onclick="closePopup()">close</button>
-
+  
 </div>
   
 <script>
@@ -624,6 +617,8 @@ music.pause();
 btn.innerHTML="🎵 Play Music";
 
 }
+
+  }
 
 const memories=[
 
@@ -703,7 +698,7 @@ let i=0;
 
   function updateMemory(){
 
-title.innerHTML=memories[i].title;
+document.getElementById("title").innerHTML=memories[i].title;
 
 text.innerHTML=memories[i].text;
 
@@ -803,27 +798,7 @@ setTimeout(()=>spark.remove(),8000);
   
 updateMemory();
 
-function openBook(){
-
-document.getElementById("bgm").play().catch(()=>{});
-
-document.getElementById("book").classList.add("open");
-
-setTimeout(()=>{
-
-document.getElementById("bookContainer").style.opacity="0";
-
-document.querySelector(".card").style.display="block";
-
-setTimeout(()=>{
-
-document.getElementById("bookContainer").remove();
-
-},1000);
-
-},1500);
-
-}
+  }
 
 function openBook(){
 
@@ -847,6 +822,24 @@ document.getElementById("bookContainer").remove();
 
 }
 
+photo.onclick=function(){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popupImg").src=this.src;
+
+document.getElementById("popupText").innerHTML=
+memories[i].text;
+
+}
+
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none";
+
+}
+  
   document.onclick=function(e){
 
 let sparkle=document.createElement("div");
