@@ -1,5 +1,470 @@
-<script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>for jejes</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+background:linear-gradient(180deg,#1b2236,#0b1120);
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+
+}
+
+.stars{
+
+position:fixed;
+width:100%;
+height:100%;
+left:0;
+top:0;
+z-index:-2;
+
+}
+
+
+.star{
+
+position:absolute;
+background:white;
+border-radius:50%;
+animation:twinkle 4s infinite;
+
+}
+
+
+@keyframes twinkle{
+
+0%,100%{
+opacity:.2;
+}
+
+50%{
+opacity:1;
+transform:scale(2);
+}
+
+}
+
+
+.moon{
+
+position:fixed;
+
+top:50px;
+right:70px;
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+background:#fff5bf;
+
+box-shadow:
+0 0 30px #fff5bf,
+0 0 70px rgba(255,245,191,.5);
+
+z-index:-1;
+
+}
+
+
+.card{
+
+width:760px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+padding:35px;
+
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+animation:fadeIn 1s;
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+h1{
+
+font-family:Caveat,cursive;
+
+font-size:58px;
+
+margin-bottom:20px;
+
+}
+
+
+#text{
+
+line-height:1.8;
+
+min-height:120px;
+
+font-size:18px;
+
+}
+
+
+.photo{
+
+display:inline-block;
+
+background:white;
+
+padding:12px 12px 45px;
+
+border-radius:6px;
+
+margin-top:20px;
+
+transform:rotate(-2deg);
+
+transition:.4s;
+
+box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+
+.photo:hover{
+
+transform:rotate(0deg) scale(1.03);
+
+}
+
+
+.photo img{
+
+width:420px;
+
+height:280px;
+
+object-fit:cover;
+
+display:block;
+
+}
+
+
+.buttons{
+
+margin-top:25px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+
+button{
+
+padding:14px 34px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ffd8e5;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+button:hover{
+
+transform:translateY(-3px);
+
+background:white;
+
+}
+
+
+#counter{
+
+margin-top:15px;
+
+opacity:.7;
+
+}
+
+
+.fade{
+
+animation:fade .6s;
+
+}
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+</style>
+
+</head>
+
+  <body>
+
+<div class="stars"></div>
+
+<div class="moon"></div>
+
+
+<audio id="bgm" loop>
+
+<source src="unanchored-endelos-main-version-21929-08-17.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<div class="card">
+
+<h1 id="title">
+
+hi jejes
+
+</h1>
+
+
+<p id="text">
+
+ik its not much tapi atleast i bikin sesuatu lah yeah buat kau<br><br>
+
+ini smua poto-poto buat kenang-kenangan (makasi eje udah kasih foto2nya)
+
+</p>
+
+
+<div class="photo">
+
+<img id="photo" src="photo 1.jpg">
+
+</div>
+
+
+<div class="buttons">
+
+<button onclick="prev()">
+
+← Previous
+
+</button>
+
+
+<button onclick="next()">
+
+Next →
+
+</button>
+
+</div>
+
+
+<p id="counter">
+
+1 / 7
+
+</p>
+
+
+</div>
+
+
+
+<div id="memoryWall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;overflow:auto;background:linear-gradient(180deg,#1b2236,#0b1120);padding:50px;text-align:center;">
+
+
+<h1 style="font-family:Caveat;font-size:65px;">
+
+📸 our memory wall
+
+</h1>
+
+
+<p style="margin-bottom:35px;">
+
+sama2 -jus
+
+</p>
+
+
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:25px;">
+
+
+<img src="photo 1.jpg" class="wallPic">
+
+<img src="photo 2.jpg" class="wallPic">
+
+<img src="photo 3.jpg" class="wallPic">
+
+<img src="photo 4.jpg" class="wallPic">
+
+<img src="photo 5.jpg" class="wallPic">
+
+<img src="photo 6.jpg" class="wallPic">
+
+<img src="photo 7.jpg" class="wallPic">
+
+<img src="photo 8.jpg" class="wallPic">
+
+<img src="photo 9.jpg" class="wallPic">
+
+<img src="photo 10.jpg" class="wallPic">
+
+
+</div>
+
+
+
+<p style="margin-top:40px;font-size:18px;line-height:1.8;max-width:800px;margin-left:auto;margin-right:auto;">
+
+keren ga?
+
+<br>
+
+kalo keren coba langsung wa "this is peak"
+
+<br>
+
+sm sm
+
+</p>
+
+
+
+<button onclick="location.reload()">
+
+Replay Memories ↻
+
+</button>
+
+
+</div>
+
+
+
+<style>
+
+
+.wallPic{
+
+width:220px;
+
+height:170px;
+
+object-fit:cover;
+
+background:white;
+
+padding:10px 10px 40px;
+
+border-radius:5px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+transition:.4s;
+
+}
+
+
+.wallPic:nth-child(1){transform:rotate(-8deg);}
+
+.wallPic:nth-child(2){transform:rotate(5deg);}
+
+.wallPic:nth-child(3){transform:rotate(-3deg);}
+
+.wallPic:nth-child(4){transform:rotate(9deg);}
+
+.wallPic:nth-child(5){transform:rotate(-6deg);}
+
+.wallPic:nth-child(6){transform:rotate(4deg);}
+
+
+.wallPic:hover{
+
+transform:scale(1.08) rotate(0deg);
+
+}
+
+
+</style>
+
+    <script>
+
 const memories=[
+
 {
 title:"The Memories",
 text:"by Jujus",
@@ -41,6 +506,7 @@ title:"all i want to say is terima gajih jejes",
 text:"ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini. ngga cuman i doang sih, yang lain juga (terutama i), smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw, ok bye",
 img:"photo 6.jpg"
 }
+
 ];
 
 
@@ -70,9 +536,11 @@ photo.classList.add("fade");
 }
 
 
+
 function next(){
 
 const music=document.getElementById("bgm");
+
 
 if(music.paused){
 
@@ -111,9 +579,7 @@ updateMemory();
 
 }
 
-
-
-for(let x=0;x<220;x++){
+      for(let x=0;x<220;x++){
 
 let s=document.createElement("div");
 
@@ -180,7 +646,11 @@ spark.style.opacity=0;
 
 
 
-setTimeout(()=>spark.remove(),8000);
+setTimeout(()=>{
+
+spark.remove();
+
+},8000);
 
 
 },2500);
@@ -189,4 +659,10 @@ setTimeout(()=>spark.remove(),8000);
 
 updateMemory();
 
+
 </script>
+
+
+</body>
+
+</html>
