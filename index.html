@@ -1,716 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>for jejes</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-
-font-family:Poppins,sans-serif;
-background:linear-gradient(180deg,#1b2236,#0b1120);
-color:white;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-
-}
-
-.stars{
-
-position:fixed;
-width:100%;
-height:100%;
-left:0;
-top:0;
-z-index:-2;
-
-}
-
-.star{
-
-position:absolute;
-background:white;
-border-radius:50%;
-animation:twinkle 4s infinite;
-
-}
-
-@keyframes twinkle{
-
-0%,100%{
-opacity:.2;
-}
-
-50%{
-opacity:1;
-transform:scale(2);
-}
-
-}
-
-.moon{
-
-position:fixed;
-
-top:50px;
-right:70px;
-
-width:90px;
-height:90px;
-
-border-radius:50%;
-
-background:#fff5bf;
-
-box-shadow:
-0 0 30px #fff5bf,
-0 0 70px rgba(255,245,191,.5);
-
-z-index:-1;
-
-}
-
-</div>
-
-</div>
-  
-.card{
-
-display:none;   /* <-- add this */
-
-width:760px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
-
-padding:35px;
-
-border-radius:25px;
-
-text-align:center;
-
-box-shadow:0 20px 40px rgba(0,0,0,.4);
-
-animation:fadeIn 1s;
-
-}
-
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-h1{
-
-font-family:Caveat,cursive;
-font-size:58px;
-
-margin-bottom:20px;
-
-}
-
-#text{
-
-line-height:1.8;
-min-height:120px;
-font-size:18px;
-
-}
-
-.photo{
-
-display:inline-block;
-
-background:white;
-
-padding:12px 12px 45px;
-
-border-radius:6px;
-
-margin-top:20px;
-
-transform:rotate(-2deg);
-
-transition:.4s;
-
-box-shadow:0 15px 30px rgba(0,0,0,.35);
-
-}
-
-.photo:hover{
-
-transform:rotate(0deg) scale(1.03);
-
-}
-
-.photo img{
-
-width:420px;
-height:280px;
-
-object-fit:cover;
-
-display:block;
-
-}
-
-.photo img{
-cursor:pointer;
-}
-
-.photo img:hover{
-filter:brightness(1.1);
-}
-
-.buttons{
-
-margin-top:25px;
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-}
-
-button{
-
-padding:14px 34px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ffd8e5;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-button:hover{
-
-transform:translateY(-3px);
-
-background:white;
-
-}
-
-#counter{
-
-margin-top:15px;
-
-opacity:.7;
-
-}
-
-.fade{
-
-animation:fade .6s;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-}
-
-#popup{
-
-display:none;
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,.75);
-
-backdrop-filter:blur(10px);
-
-justify-content:center;
-align-items:center;
-
-flex-direction:column;
-
-z-index:9999;
-
-}
-
-
-#popup img{
-
-width:600px;
-max-width:80%;
-
-max-height:70vh;
-
-object-fit:contain;
-
-border-radius:15px;
-
-box-shadow:0 20px 50px black;
-
-}
-
-
-#popup p{
-
-margin-top:20px;
-
-max-width:700px;
-
-text-align:center;
-
-font-size:18px;
-
-line-height:1.6;
-
-}
-
-
-#popup button{
-
-margin-top:20px;
-
-}
-  
-</style>
-
-</head>
-
-<body>
-
-  <h1>Our Memories</h1>
-
-<p>for jejes</p>
-
-<button onclick="openBook()">Open Scrapbook</button>
-
-</div>
-
-  <div id="bookContainer">
-
-<div id="book">
-
-<div id="cover">
-
-<div class="stars"></div>
-
-<div class="moon"></div>
-
-<audio id="bgm" loop>
-
-<source src="unanchored-endelos-main-version-21929-08-17.mp3" type="audio/mpeg">
-
-</audio>
-
-
-<div class="card">
-
-    <button id="musicBtn" onclick="toggleMusic()">
-🎵 Music
-</button>
-
-<h1 id="title">
-
-hi jejes
-
-</h1>
-
-<p id="text">
-
-ik its not much tapi atleast i bikin sesuatu lah yeah buat kau<br><br>
-
-ini smua poto-poto buat kenang-kenangan (makasi eje udah kasih foto2nya)
-
-</p>
-
-<div class="photo">
-
-<img id="photo" src="photo 1.jpg">
-
-</div>
-
-<div class="buttons">
-
-<button onclick="prev()">
-
-← Previous
-
-</button>
-
-<button onclick="next()">
-
-Next →
-
-</button>
-
-</div>
-
-<p id="counter">
-
-1 / 7
-
-</p>
-
-  </div>
-
-<div id="memoryWall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;overflow:auto;background:linear-gradient(180deg,#1b2236,#0b1120);padding:50px;text-align:center;">
-
-<h1 style="font-family:Caveat;font-size:65px;">
-📸 our memory wall
-</h1>
-
-<p style="margin-bottom:35px;">
-sama2 -jus
-</p>
-
-<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:25px;">
-
-<img src="photo 1.jpg" class="wallPic">
-<img src="photo 2.jpg" class="wallPic">
-<img src="photo 3.jpg" class="wallPic">
-<img src="photo 4.jpg" class="wallPic">
-<img src="photo 5.jpg" class="wallPic">
-<img src="photo 6.jpg" class="wallPic">
-  <img src="photo 7.jpg" class="wallPic">
-  <img src="photo 8.jpg" class="wallPic">
-  <img src="photo 9.jpg" class="wallPic">
-  <img src="photo 10.jpg" class="wallPic">
-
-</div>
-
-<p style="margin-top:40px;font-size:18px;line-height:1.8;max-width:800px;margin-left:auto;margin-right:auto;">
-
-keren ga?
-  kalo keren coba langsung wa "this is peak"
-  sm sm
-
-</p>
-
-<button onclick="location.reload()">
-
-Replay Memories ↻
-
-</button>
-
-</div>
-
-<style>
-
-  #musicBtn{
-
-position:fixed;
-
-bottom:30px;
-right:30px;
-
-padding:12px 20px;
-
-background:#ffd8e5;
-
-border-radius:50px;
-
-z-index:1000;
-
-}
-
-  #bookContainer{
-
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(180deg,#1b2236,#0b1120);
-
-z-index:999;
-
-transition:opacity 1s;
-
-}
-
-#book{
-
-width:340px;
-height:450px;
-
-perspective:1500px;
-
-}
-
-#cover{
-
-width:100%;
-height:100%;
-
-background:#8B5E3C;
-
-border-radius:8px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-
-color:white;
-
-box-shadow:0 15px 35px rgba(0,0,0,.5);
-
-transform-origin:left;
-
-transition:transform 1.5s ease;
-
-}
-
-#cover h1{
-
-font-family:Caveat;
-font-size:52px;
-
-margin-bottom:15px;
-
-}
-
-#cover p{
-
-margin-bottom:35px;
-
-}
-
-#cover button{
-
-padding:14px 28px;
-
-border:none;
-
-border-radius:30px;
-
-background:#ffd8e5;
-
-cursor:pointer;
-
-font-weight:bold;
-
-}
-
-.open #cover{
-
-transform:rotateY(-165deg);
-
-}
-
-.wallPic{
-
-width:220px;
-height:170px;
-
-object-fit:cover;
-
-background:white;
-
-padding:10px 10px 40px;
-
-border-radius:5px;
-
-box-shadow:0 10px 25px rgba(0,0,0,.35);
-
-transition:.4s;
-
-}
-
-.wallPic:nth-child(1){transform:rotate(-8deg);}
-.wallPic:nth-child(2){transform:rotate(5deg);}
-.wallPic:nth-child(3){transform:rotate(-3deg);}
-.wallPic:nth-child(4){transform:rotate(9deg);}
-.wallPic:nth-child(5){transform:rotate(-6deg);}
-.wallPic:nth-child(6){transform:rotate(4deg);}
-
-
-.wallPic:hover{
-
-transform:scale(1.08) rotate(0deg);
-
-}
-
-</style>
-  
-</div>
-  
 <script>
-
-  function toggleMusic(){
-
-const music=document.getElementById("bgm");
-
-const btn=document.getElementById("musicBtn");
-
-
-if(music.paused){
-
-music.play();
-
-btn.innerHTML="⏸ Pause Music";
-
-}
-
-else{
-
-music.pause();
-
-btn.innerHTML="🎵 Play Music";
-
-}
-
-  }
-
 const memories=[
-
 {
-
 title:"The Memories",
-
 text:"by Jujus",
-
 img:"photo 1.jpg"
-
 },
 
 {
-
 title:"Kenangan-1",
-
 text:"ini pas retret trakhir kita pas kelas 1222222222222222222, dimana pas disitu kalian enak bisa bertiga meanwhile i stuck sama si pemilik raynation itu lagi",
-
 img:"photo 2.jpg"
-
 },
 
 {
-
 title:"Kenangan-2",
-
 text:"kenang-kenangan dan awalnya terbentuk whwuwuwwuw, gacor sekali grup ini pas masih ori (dan skr jg).. awalnya dari kapan ya? dari pas ke bandung itu kan? eh ato itu beda ya, gatau ah capek mikir, anyways kenangan ke 2 yang awalnya cuman kita bertiga wrwrr.",
-
 img:"photo 3.jpg"
-
 },
 
 {
-
 title:"Kenangan-3",
-
 text:"foto yang paling baru nihh (maap ga berurutan), tapi ya begitulah ya, ini huehuenya jejes keberapa gatau tapi dia huehue ges, our last gbk trip, moga diingat2 pas ke malay itu",
-
 img:"photo 4.jpg"
-
 },
 
 {
-
 title:"Kenangan-4",
-
 text:"perlukah i menjelaskan ni, TRIP KE GBK KEMARINNNNNNNNN (tuh kan ga berurutan)",
-
 img:"photo 5.jpg"
-
 },
 
 {
-
 title:"Kenangan-5",
-
 text:"dannnnn kita balik lagi ke senjon ya ges, poto bareng2 kita, kenang-kenangan lagi yg harus diinget jejes, giluyy kita banyak juga memoriesnya",
-
 img:"photo 6.jpg"
-
 },
 
 {
-
 title:"all i want to say is terima gajih jejes",
-
 text:"ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini. ngga cuman i doang sih, yang lain juga (terutama i), smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw, ok bye",
-
 img:"photo 6.jpg"
-
 }
+];
 
-  ];
 
 let i=0;
 
-  function updateMemory(){
+
+function updateMemory(){
 
 document.getElementById("title").innerHTML=memories[i].title;
 
-text.innerHTML=memories[i].text;
+document.getElementById("text").innerHTML=memories[i].text;
 
-photo.src=memories[i].img;
+document.getElementById("photo").src=memories[i].img;
 
-counter.innerHTML=(i+1)+" / "+memories.length;
+document.getElementById("counter").innerHTML=
+(i+1)+" / "+memories.length;
+
+
+let photo=document.getElementById("photo");
 
 photo.classList.remove("fade");
+
 void photo.offsetWidth;
+
 photo.classList.add("fade");
 
 }
+
 
 function next(){
 
@@ -722,7 +80,9 @@ music.play().catch(()=>{});
 
 }
 
+
 i++;
+
 
 if(i>=memories.length){
 
@@ -734,9 +94,12 @@ return;
 
 }
 
+
 updateMemory();
 
 }
+
+
 
 function prev(){
 
@@ -748,143 +111,82 @@ updateMemory();
 
 }
 
+
+
 for(let x=0;x<220;x++){
 
 let s=document.createElement("div");
 
 s.className="star";
 
+
 let size=Math.random()*3+1;
 
+
 s.style.width=size+"px";
+
 s.style.height=size+"px";
 
+
 s.style.left=Math.random()*100+"%";
+
 s.style.top=Math.random()*100+"%";
+
 
 s.style.opacity=Math.random();
 
+
 s.style.animationDelay=Math.random()*5+"s";
+
 
 document.querySelector(".stars").appendChild(s);
 
 }
 
+
+
 setInterval(()=>{
 
 const spark=document.createElement("div");
 
+
 spark.innerHTML=["✨","🤍","⭐"][Math.floor(Math.random()*3)];
 
+
 spark.style.position="fixed";
+
 spark.style.left=Math.random()*100+"vw";
+
 spark.style.bottom="-20px";
+
 spark.style.fontSize="18px";
+
 spark.style.pointerEvents="none";
+
 spark.style.transition="8s linear";
 
+
 document.body.appendChild(spark);
+
+
 
 setTimeout(()=>{
 
 spark.style.transform="translateY(-120vh)";
+
 spark.style.opacity=0;
 
 },50);
 
+
+
 setTimeout(()=>spark.remove(),8000);
 
+
 },2500);
-  
+
+
+
 updateMemory();
 
-  }
-
-function openBook(){
-
-document.getElementById("bgm").play().catch(()=>{});
-
-document.getElementById("book").classList.add("open");
-
-setTimeout(()=>{
-
-document.getElementById("bookContainer").style.opacity="0";
-
-document.querySelector(".card").style.display="block";
-
-setTimeout(()=>{
-
-document.getElementById("bookContainer").remove();
-
-},1000);
-
-},1500);
-
-}
-
-photo.onclick=function(){
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popupImg").src=this.src;
-
-document.getElementById("popupText").innerHTML=
-memories[i].text;
-
-}
-
-
-function closePopup(){
-
-document.getElementById("popup").style.display="none";
-
-}
-  
-  document.onclick=function(e){
-
-let sparkle=document.createElement("div");
-
-sparkle.innerHTML="✨";
-
-sparkle.style.position="fixed";
-sparkle.style.left=e.clientX+"px";
-sparkle.style.top=e.clientY+"px";
-
-sparkle.style.fontSize="25px";
-sparkle.style.pointerEvents="none";
-
-document.body.appendChild(sparkle);
-
-
-setTimeout(()=>{
-
-sparkle.style.transform="translateY(-40px) scale(1.5)";
-sparkle.style.opacity="0";
-
-},50);
-
-
-setTimeout(()=>{
-
-sparkle.remove();
-
-},1000);
-
-}
-  
 </script>
-
-<div id="popup">
-
-<img id="popupImg">
-
-<p id="popupText"></p>
-
-<button onclick="closePopup()">close</button>
-
-</div>
-  
-</body>
-
-</html>
-
