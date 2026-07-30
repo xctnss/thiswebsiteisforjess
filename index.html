@@ -85,12 +85,6 @@ z-index:-1;
 
 }
 
-<div id="bookContainer">
-
-<div id="book">
-
-<div id="cover">
-
 <h1>Our Memories</h1>
 
 <p>for jejes</p>
@@ -197,6 +191,14 @@ display:block;
 
 }
 
+.photo img{
+cursor:pointer;
+}
+
+.photo img:hover{
+filter:brightness(1.1);
+}
+
 .buttons{
 
 margin-top:25px;
@@ -267,11 +269,80 @@ transform:translateY(0);
 
 }
 
+#popup{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.75);
+
+backdrop-filter:blur(10px);
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+z-index:9999;
+
+}
+
+
+#popup img{
+
+width:600px;
+max-width:80%;
+
+max-height:70vh;
+
+object-fit:contain;
+
+border-radius:15px;
+
+box-shadow:0 20px 50px black;
+
+}
+
+
+#popup p{
+
+margin-top:20px;
+
+max-width:700px;
+
+text-align:center;
+
+font-size:18px;
+
+line-height:1.6;
+
+}
+
+
+#popup button{
+
+margin-top:20px;
+
+}
+  
 </style>
 
 </head>
 
 <body>
+
+  <div id="bookContainer">
+
+<div id="book">
+
+<div id="cover">
 
 <div class="stars"></div>
 
@@ -282,6 +353,10 @@ transform:translateY(0);
 <source src="unanchored-endelos-main-version-21929-08-17.mp3" type="audio/mpeg">
 
 </audio>
+
+  <button id="musicBtn" onclick="toggleMusic()">
+🎵 Music
+</button>
 
 <div class="card">
 
@@ -371,6 +446,23 @@ Replay Memories ↻
 </div>
 
 <style>
+
+  #musicBtn{
+
+position:fixed;
+
+bottom:30px;
+right:30px;
+
+padding:12px 20px;
+
+background:#ffd8e5;
+
+border-radius:50px;
+
+z-index:1000;
+
+}
 
   #bookContainer{
 
@@ -498,7 +590,40 @@ transform:scale(1.08) rotate(0deg);
 
 </style>
 
+<div id="popup">
+
+<img id="popupImg">
+
+<p id="popupText"></p>
+
+<button onclick="closePopup()">close</button>
+
+</div>
+  
 <script>
+
+  function toggleMusic(){
+
+const music=document.getElementById("bgm");
+
+const btn=document.getElementById("musicBtn");
+
+
+if(music.paused){
+
+music.play();
+
+btn.innerHTML="⏸ Pause Music";
+
+}
+
+else{
+
+music.pause();
+
+btn.innerHTML="🎵 Play Music";
+
+}
 
 const memories=[
 
@@ -699,9 +824,73 @@ document.getElementById("bookContainer").remove();
 },1500);
 
 }
+
+function openBook(){
+
+document.getElementById("bgm").play().catch(()=>{});
+
+document.getElementById("book").classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("bookContainer").style.opacity="0";
+
+document.querySelector(".card").style.display="block";
+
+setTimeout(()=>{
+
+document.getElementById("bookContainer").remove();
+
+},1000);
+
+},1500);
+
+}
+
+  document.onclick=function(e){
+
+let sparkle=document.createElement("div");
+
+sparkle.innerHTML="✨";
+
+sparkle.style.position="fixed";
+sparkle.style.left=e.clientX+"px";
+sparkle.style.top=e.clientY+"px";
+
+sparkle.style.fontSize="25px";
+sparkle.style.pointerEvents="none";
+
+document.body.appendChild(sparkle);
+
+
+setTimeout(()=>{
+
+sparkle.style.transform="translateY(-40px) scale(1.5)";
+sparkle.style.opacity="0";
+
+},50);
+
+
+setTimeout(()=>{
+
+sparkle.remove();
+
+},1000);
+
+}
   
 </script>
 
+<div id="popup">
+
+<img id="popupImg">
+
+<p id="popupText"></p>
+
+<button onclick="closePopup()">close</button>
+
+</div>
+  
 </body>
 
 </html>
