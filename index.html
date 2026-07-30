@@ -3,11 +3,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>for jejes</title>
+<title>For Jejes ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,14 +19,14 @@ box-sizing:border-box;
 
 body{
 
-background:linear-gradient(180deg,#1d2333,#0d1320);
-font-family:Poppins;
-overflow:hidden;
+font-family:Poppins,sans-serif;
+background:linear-gradient(180deg,#1b2236,#0b1120);
+color:white;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-color:white;
+overflow:hidden;
 
 }
 
@@ -35,110 +35,173 @@ color:white;
 position:fixed;
 width:100%;
 height:100%;
-overflow:hidden;
-z-index:-1;
+left:0;
+top:0;
+z-index:-2;
 
 }
 
 .star{
 
 position:absolute;
-width:3px;
-height:3px;
 background:white;
 border-radius:50%;
-animation:twinkle 3s infinite;
+animation:twinkle 4s infinite;
 
 }
 
 @keyframes twinkle{
 
-50%{
-
+0%,100%{
 opacity:.2;
+}
+
+50%{
+opacity:1;
 transform:scale(2);
+}
 
 }
+
+.moon{
+
+position:fixed;
+
+top:50px;
+right:70px;
+
+width:90px;
+height:90px;
+
+border-radius:50%;
+
+background:#fff5bf;
+
+box-shadow:
+0 0 30px #fff5bf,
+0 0 70px rgba(255,245,191,.5);
+
+z-index:-1;
 
 }
 
 .card{
 
-width:750px;
-height:520px;
+width:760px;
 
 background:rgba(255,255,255,.08);
 
-backdrop-filter:blur(12px);
-
-border-radius:25px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.4);
+backdrop-filter:blur(15px);
 
 padding:35px;
 
+border-radius:25px;
+
 text-align:center;
 
-animation:fadeIn 2s;
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+animation:fadeIn 1s;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
 
 }
 
 h1{
 
-font-family:Caveat;
-font-size:55px;
+font-family:Caveat,cursive;
+font-size:58px;
+
 margin-bottom:20px;
 
 }
 
-p{
+#text{
 
 line-height:1.8;
-
+min-height:120px;
 font-size:18px;
-
-margin-bottom:20px;
 
 }
 
-img{
+.photo{
+
+display:inline-block;
+
+background:white;
+
+padding:12px 12px 45px;
+
+border-radius:6px;
+
+margin-top:20px;
+
+transform:rotate(-2deg);
+
+transition:.4s;
+
+box-shadow:0 15px 30px rgba(0,0,0,.35);
+
+}
+
+.photo:hover{
+
+transform:rotate(0deg) scale(1.03);
+
+}
+
+.photo img{
 
 width:420px;
 height:280px;
 
 object-fit:cover;
 
-border-radius:18px;
-
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-
-transition:.5s;
+display:block;
 
 }
 
-img:hover{
+.buttons{
 
-transform:scale(1.03) rotate(-2deg);
+margin-top:25px;
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
 
 }
 
 button{
 
-margin-top:25px;
-
-padding:15px 40px;
+padding:14px 34px;
 
 border:none;
 
 border-radius:50px;
 
-font-size:17px;
-
-cursor:pointer;
-
 background:#ffd8e5;
 
-color:#333;
+font-weight:bold;
+
+cursor:pointer;
 
 transition:.3s;
 
@@ -146,13 +209,23 @@ transition:.3s;
 
 button:hover{
 
-transform:scale(1.05);
+transform:translateY(-3px);
+
+background:white;
+
+}
+
+#counter{
+
+margin-top:15px;
+
+opacity:.7;
 
 }
 
 .fade{
 
-animation:fade .8s;
+animation:fade .6s;
 
 }
 
@@ -174,22 +247,6 @@ transform:translateY(0);
 
 }
 
-@keyframes fadeIn{
-
-from{
-
-opacity:0;
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
 </style>
 
 </head>
@@ -198,41 +255,140 @@ opacity:1;
 
 <div class="stars"></div>
 
+<div class="moon"></div>
+
+<audio id="bgm" loop>
+
+<source src="music.mp3" type="audio/mpeg">
+
+</audio>
+
 <div class="card">
 
-<h1 id="title">hi jejes</h1>
+<h1 id="title">
+
+hi jejes
+
+</h1>
 
 <p id="text">
 
-ik its not much tapi atleast i bikin sesuatu lah yeah buat kau<br>
+ik its not much tapi atleast i bikin sesuatu lah yeah buat kau<br><br>
 
 ini smua poto-poto buat kenang-kenangan (makasi eje udah kasih foto2nya)
 
 </p>
 
+<div class="photo">
+
 <img id="photo" src="photo 1.jpg">
-
-<br>
-
-<button onclick="next()">Next →</button>
 
 </div>
 
-<script>
+<div class="buttons">
 
-for(let i=0;i<150;i++){
+<button onclick="prev()">
 
-let s=document.createElement("div");
-s.className="star";
+← Previous
 
-s.style.left=Math.random()*100+"%";
-s.style.top=Math.random()*100+"%";
+</button>
 
-s.style.animationDelay=Math.random()*5+"s";
+<button onclick="next()">
 
-document.querySelector(".stars").appendChild(s);
+Next →
+
+</button>
+
+</div>
+
+<p id="counter">
+
+1 / 7
+
+</p>
+
+  </div>
+
+<div id="memoryWall" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;overflow:auto;background:linear-gradient(180deg,#1b2236,#0b1120);padding:50px;text-align:center;">
+
+<h1 style="font-family:Caveat;font-size:65px;">
+📸 Our Memory Wall
+</h1>
+
+<p style="margin-bottom:35px;">
+Every picture here is worth remembering ❤️
+</p>
+
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:25px;">
+
+<img src="photo 1.jpg" class="wallPic">
+<img src="photo 2.jpg" class="wallPic">
+<img src="photo 3.jpg" class="wallPic">
+<img src="photo 4.jpg" class="wallPic">
+<img src="photo 5.jpg" class="wallPic">
+<img src="photo 6.jpg" class="wallPic">
+
+</div>
+
+<p style="margin-top:40px;font-size:18px;line-height:1.8;max-width:800px;margin-left:auto;margin-right:auto;">
+
+ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini.
+ngga cuman i doang sih, yang lain juga (terutama i),
+smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw,
+ok bye ❤️
+
+</p>
+
+<button onclick="location.reload()">
+
+Replay Memories ↻
+
+</button>
+
+</div>
+
+<style>
+
+.wallPic{
+
+width:220px;
+height:170px;
+
+object-fit:cover;
+
+background:white;
+
+padding:10px 10px 40px;
+
+border-radius:5px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+transition:.4s;
 
 }
+
+.wallPic:nth-child(odd){
+
+transform:rotate(-5deg);
+
+}
+
+.wallPic:nth-child(even){
+
+transform:rotate(5deg);
+
+}
+
+.wallPic:hover{
+
+transform:scale(1.08) rotate(0deg);
+
+}
+
+</style>
+
+<script>
 
 const memories=[
 
@@ -268,9 +424,9 @@ img:"photo 3.jpg"
 
 {
 
-  title:"Kenangan-3",
+title:"Kenangan-3",
 
-text:"foto  yang paling baru nihh (maap ga berurutan), tapi ya begitulah ya, ini huehuenya jejes keberapa gatau tapi dia huehue ges, our last gbk trip, moga diingat2 pas ke malay itu",
+text:"foto yang paling baru nihh (maap ga berurutan), tapi ya begitulah ya, ini huehuenya jejes keberapa gatau tapi dia huehue ges, our last gbk trip, moga diingat2 pas ke malay itu",
 
 img:"photo 4.jpg"
 
@@ -278,7 +434,7 @@ img:"photo 4.jpg"
 
 {
 
-    title:"Kenangan-4",
+title:"Kenangan-4",
 
 text:"perlukah i menjelaskan ni, TRIP KE GBK KEMARINNNNNNNNN (tuh kan ga berurutan)",
 
@@ -286,11 +442,9 @@ img:"photo 5.jpg"
 
 },
 
-  
+{
 
-  {
-
-    title:"Kenangan-5",
+title:"Kenangan-5",
 
 text:"dannnnn kita balik lagi ke senjon ya ges, poto bareng2 kita, kenang-kenangan lagi yg harus diinget jejes, giluyy kita banyak juga memoriesnya",
 
@@ -298,25 +452,20 @@ img:"photo 6.jpg"
 
 },
 
-  {
+{
 
 title:"all i want to say is terima gajih jejes",
 
 text:"ingat sehebat, sekeren, senoraebuddy, segacor apa temen u ini. ngga cuman i doang sih, yang lain juga (terutama i), smoga disana u gud brok cari2 noraebang siapa tau i bisa ikut pas disana wwrwrw, ok bye",
 
 img:"photo 6.jpg"
-
 }
 
-];
+  ];
 
 let i=0;
 
-function next(){
-
-i++;
-
-if(i>=memories.length)i=0;
+  function updateMemory(){
 
 title.innerHTML=memories[i].title;
 
@@ -324,15 +473,76 @@ text.innerHTML=memories[i].text;
 
 photo.src=memories[i].img;
 
+counter.innerHTML=(i+1)+" / "+memories.length;
+
 photo.classList.remove("fade");
-
 void photo.offsetWidth;
-
 photo.classList.add("fade");
 
 }
 
+function next(){
+
+const music=document.getElementById("bgm");
+
+if(music.paused){
+
+music.play().catch(()=>{});
+
+}
+
+i++;
+
+if(i>=memories.length){
+
+document.querySelector(".card").style.display="none";
+
+document.getElementById("memoryWall").style.display="block";
+
+return;
+
+}
+
+updateMemory();
+
+}
+
+function prev(){
+
+if(i==0)return;
+
+i--;
+
+updateMemory();
+
+}
+
+for(let x=0;x<220;x++){
+
+let s=document.createElement("div");
+
+s.className="star";
+
+let size=Math.random()*3+1;
+
+s.style.width=size+"px";
+s.style.height=size+"px";
+
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+
+s.style.opacity=Math.random();
+
+s.style.animationDelay=Math.random()*5+"s";
+
+document.querySelector(".stars").appendChild(s);
+
+}
+
+updateMemory();
+
 </script>
 
 </body>
+
 </html>
